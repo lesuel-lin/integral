@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表</title>
+    <link rel="stylesheet" href="__STATIC__/style/goods.css">
+    <link rel="stylesheet" href="__STATIC__/style/element.css">
+    <script src="__STATIC__/js/vue.min.js"></script>
+    <script src="__STATIC__/js/element.js"></script>
+</head>
+<body>
+    <div id="GoodsContainer" class="GoodsContainer">
+        <div class="content-top">
+            <el-row>
+                <el-col class="top-item top-item_left" :span="8">
+                    <i class="el-icon-s-home" @click="goHome()"></i>
+                    <i class="el-icon-s-shop" style="color:#409EFF;"></i>
+                    <i class="el-icon-shopping-cart-full" @click="goOrder()"></i>
+                </el-col>
+                <el-col class="top-item" :span="8">
+                    <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
+                        <el-button slot="append" icon="el-icon-search"></el-button>
+                      </el-input>
+                </el-col>
+                <el-col class="top-item" :span="8">
+                    <img src="__STATIC__/image/userImg.jpg" alt="">
+                    <span class="userName">leseul</span>
+                </el-col>
+            </el-row>
+        </div>
+        <div class="content-body_left">
+            <ul>
+                <li>2345</li>
+                <li class="active">2345</li>
+                <li>2345</li>
+            </ul>
+        </div>
+        <div class="content-body_right">
+            <el-row>
+                <el-col class="goods-item" :span="4" v-for="(o, index) in 10" :key="o">
+                    <el-card :body-style="{ padding: '0px' }">
+                        <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" class="image">
+                        <div style="padding: 14px;">
+                            <span>好吃的汉堡</span>
+                            <div style="color: red;"><i class="el-icon-coin"></i> ￥222</div>
+                            <div class="bottom clearfix">
+                            <time class="time">{{ currentDate }}</time>
+                            <el-button type="text" class="button">兑换</el-button>
+                            </div>
+                        </div>
+                    </el-card>
+                </el-col>
+            </el-row>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    new Vue({
+        el: '#GoodsContainer',
+        data: {
+            input3: '1',
+            currentDate: '2020-11-28',
+        },
+        methods: {
+            goHome() {
+                window.location.href = "{:url('/index/index/home')}"
+            },
+            goOrder() {
+                window.location.href = "{:url('/index/order/index')}"
+            },
+        }
+    })
+</script>

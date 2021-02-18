@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="__STATIC__/style/index.css">
+    <link rel="stylesheet" href="__STATIC__/style/element.css">
+    <script src="__STATIC__/js/vue.min.js"></script>
+    <script src="__STATIC__/js/element.js"></script>
+</head>
+<body>
+    <div id="app" class="HomeContainer">
+        <div class="index_bg"></div>
+        <!-- 头部 -->
+        {include file="./common/header" /}
+        <div class="home-content">
+            <div class="content-left">
+                <el-collapse v-model="activeName" accordion>
+                    <el-collapse-item title="食品" name="1">
+                        <div @click="toGoods()">休闲食品</div>
+                        <div>进口食品</div>
+                        <div>粮油干货</div>
+                    </el-collapse-item>
+                    <el-collapse-item title="服饰配饰" name="2">
+                        <div>女装</div>
+                        <div>男装</div>
+                        <div>流行配饰</div>
+                    </el-collapse-item>
+                    <el-collapse-item title="数码设备" name="3">
+                        <div>数码电子</div>
+                        <div>办公电脑</div>
+                        <div>手机</div>
+                    </el-collapse-item>
+                    <el-collapse-item title="茶酒/饮品" name="4">
+                        <div>饮品</div>
+                        <div>酒品</div>
+                        <div>品茶</div>
+                    </el-collapse-item>
+                    <el-collapse-item title="图书/期刊" name="5">
+                        <div>人文社科</div>
+                        <div>童书</div>
+                    </el-collapse-item>
+                    <el-collapse-item title="家居/厨具" name="6">
+                        <div>水杯/茶具/酒具</div>
+                        <div>家具灯具</div>
+                        <div>家纺</div>
+                        <div>厨房用具</div>
+                    </el-collapse-item>
+                    <el-collapse-item title="母婴/洗护" name="7">
+                        <div>孕婴用品</div>
+                        <div>个护化妆</div>
+                    </el-collapse-item>
+                </el-collapse>
+            </div>
+            <div class="content-right">
+                <div class="home-banner block">
+                    <el-carousel trigger="click" height="400px">
+                    <el-carousel-item v-for="item in images">
+                        <img :src="item" alt="">
+                    </el-carousel-item>
+                    </el-carousel>
+                </div>
+                <div class="hot-goods">
+                    <h2>热门商品<i class="el-icon-collection-tag"></i></h2>
+                    <el-row>
+                        <el-col class="goods-item" :span="5" v-for="(o, index) in 10" :key="o">
+                            <el-card :body-style="{ padding: '0px' }">
+                            <img src="__STATIC__/image/userImg.jpg" class="image">
+                            <div style="padding: 14px;">
+                                <span>好吃的汉堡</span>
+                                <div style="color: red;"><i class="el-icon-coin"></i> ￥222</div>
+                                <div class="bottom clearfix">
+                                <time class="time">{{ currentDate }}</time>
+                                <el-button type="text" class="button">兑换</el-button>
+                                </div>
+                            </div>
+                            </el-card>
+                        </el-col>
+                    </el-row>
+                </div>
+            </div>
+            <div class="content-right-end">
+                <div class="content-personal">
+                    <div class="personal-header">
+                        <img src="__STATIC__/image/userImg.jpg" alt="">
+                        <div>leseul</div>
+                    </div>
+                    <div class="personal-content">
+                        <ul>
+                            <li><i class="el-icon-coin"></i> 我的积分：22233</li>
+                            <!-- <li><i class="el-icon-phone-outline"></i> 联系电话：15992230800</li> -->
+                            <li><i class="el-icon-shopping-cart-full"></i> 我的订单：<a href="#">查看</a></li>
+                            <li><a href="#">玩游戏得积分</a></li>
+                            <li><a href="#">查看积分变更记录</a></li>
+                        </ul>
+                    </div>
+                    <div class="personal-footer"></div>
+                </div>
+
+                <div class="right-end-notice">
+                    <div class="notice-header">活动公告</div>
+                    <div class="notice-text">★ 双倍积分获取活动限时开启，“暗影宝箱”兑换限时上架</div>
+                    <div class="notice-text">★ 双倍积分获取活动限时开启，“暗影宝箱”兑换限时上架</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            images: [
+                "__STATIC__/image/banner2.jpg",
+                "__STATIC__/image/banner3.jpg",
+                "__STATIC__/image/banner4.jpg",
+                "__STATIC__/image/banner5.jpg",
+                "__STATIC__/image/banner6.jpg"],
+            activeName: '1',
+            currentDate: '2020-11-28',
+        },
+        methods: {
+            toGoods() {
+                window.location.href="{:url('./index/goods/index')}"
+            },
+        },
+    })
+</script>

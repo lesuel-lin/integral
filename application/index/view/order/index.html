@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>我的订单</title>
+		<link rel="stylesheet" href="__STATIC__/style/goods.css">
+		<link rel="stylesheet" href="__STATIC__/style/element.css">
+		<script src="__STATIC__/js/vue.min.js"></script>
+		<script src="__STATIC__/js/element.js"></script>
+</head>
+<body>
+	<div id="orderList" class="orderList GoodsContainer">
+		<div class="content-top">
+						<el-row>
+								<el-col class="top-item top-item_left" :span="8">
+										<i class="el-icon-s-home" @click="goHome()"></i>
+										<i class="el-icon-s-shop" @click="goGoodsPage()"></i>
+										<i class="el-icon-shopping-cart-full" style="color:#409EFF;"></i>
+								</el-col>
+								<el-col class="top-item" :span="8">
+										<el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
+												<el-button slot="append" icon="el-icon-search"></el-button>
+										</el-input>
+								</el-col>
+								<el-col class="top-item" :span="8">
+										<img src="__STATIC__/image/userImg.jpg" alt="">
+										<span class="userName">leseul</span>
+								</el-col>
+						</el-row>
+				</div>
+				<div class="content-body_left">
+						<ul>
+								<li class="active">全部</li>
+								<li>待发货</li>
+								<li>已发货</li>
+								<li>已完成</li>
+						</ul>
+				</div>
+				<div class="content-body_right order_list">
+					<el-card style="margin: 10px;width:98%;" shadow="hover">
+						<div class="order_item-img">
+							<el-avatar shape="square" :size="100" fit="fill" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"></el-avatar>
+						</div>
+						<div class="order_item-btn">
+							<span>确认收货</span>
+							<span>删除</span>
+						</div>
+						<div class="order_item-detail">
+	            <div>商品名：<span>leseul</span></div>
+	            <div>兑换积分：<span style="color:#f40;">123</span></div>
+	            <div>兑换时间：<span>2020-12-12</span></div>
+	            <div>状态：<span>已发货</span></div>
+	          </div>
+				  </el-card>
+
+				  <!--  -->
+				  <el-card style="margin: 10px;width:98%;" shadow="hover">
+						<div class="order_item-img">
+							<el-avatar shape="square" :size="100" fit="fill" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"></el-avatar>
+						</div>
+						<div class="order_item-btn">
+							<span>确认收货</span>
+							<span>删除</span>
+						</div>
+						<div class="order_item-detail">
+	            <div>商品名：<span>leseul</span></div>
+	            <div>兑换积分：<span style="color:#f40;">123</span></div>
+	            <div>兑换时间：<span>2020-12-12</span></div>
+	            <div>状态：<span>未发货</span></div>
+	          </div>
+				  </el-card>
+				  <!--  -->
+				  <el-card style="margin: 10px;width:98%;" shadow="hover">
+						<div class="order_item-img">
+							<el-avatar shape="square" :size="100" fit="fill" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"></el-avatar>
+						</div>
+						<div class="order_item-btn">
+							<!-- <span>确认收货</span> -->
+							<span>删除</span>
+						</div>
+						<div class="order_item-detail">
+	            <div>商品名：<span>leseul</span></div>
+	            <div>兑换积分：<span style="color:#f40;">123</span></div>
+	            <div>兑换时间：<span>2020-12-12</span></div>
+	            <div>状态：<span>已完成</span></div>
+	          </div>
+				  </el-card>
+
+				</div>
+	</div>
+
+</body>
+</html>
+
+<script>
+	new Vue({
+		el: '#orderList',
+		data: {
+						input3: '1',
+		},
+		methods: {
+						goHome() {
+								window.location.href = "{:url('/index/index/home')}"
+						},
+						goGoodsPage() {
+								window.location.href = "{:url('/index/goods/index')}"
+						},
+		},
+	})
+</script>
